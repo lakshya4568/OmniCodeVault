@@ -53,7 +53,7 @@ public class pattern {
 
         System.out.println();
 
-        //hollow_rectangle(rows, columns);
+        hollow_rectangle(rows, columns);
         diamond(rows);
 
 
