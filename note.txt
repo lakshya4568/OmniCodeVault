@@ -1,0 +1,3 @@
+We can use the *.log in the .gitignore file to ignore all the log files
+in the project. we can also use *.ext method to ignore any files and it's
+extension.
