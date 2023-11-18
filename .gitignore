@@ -1,4 +1,4 @@
 *.log
-Java/out
-src/out
+Java/out/
+src/out/
 .DS_Store
