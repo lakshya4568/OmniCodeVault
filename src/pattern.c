@@ -1,34 +1,17 @@
 #include <stdio.h>
 
-int mini(int arr[], int n ) {
-    // minimum function of array
-    int min = arr[0];
-    for (int i = 0; i < n; i++) {
-        if (arr[i] < min) {
-            min = arr[i]; 
+void inverted_Halfpyramid(int rows) {
+    for (int i = 1; i <= rows; i++) {
+        for (int j = 1; j <= (rows-i)+1; j++) {
+            printf("* ");
         }
+        printf("\n");
     }
-    return min;
-}
-
-void swapping(int x, int y) {
-    int z;
-    z = x;
-    x = y;
-    y = z;
 }
 
 int main() {
-
-    int n1, n2;
-    printf("Enter two numbers: ");
-    scanf("%d %d", &n1, &n2);
-
-    printf("Before swapping: %d %d\n", n1, n2);
-    swapping(n1, n2);
-    printf("After swapping: %d %d\n", n1, n2);
+    
+    inverted_Halfpyramid(5);
 
     return 0;
 }
-
-
