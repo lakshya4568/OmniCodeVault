@@ -1,4 +1,6 @@
 *.log
 Java/out/
 src/out/
+.vscode/
+src/output/
 .DS_Store
