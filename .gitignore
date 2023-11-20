@@ -4,3 +4,4 @@ src/out/
 .vscode/
 src/output/
 .DS_Store
+*.classpath
