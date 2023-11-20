@@ -1,5 +1,7 @@
 *.log
-src/output/
-.vscode/
-src/out/
 Java/out/
+src/out/
+.vscode/
+src/output/
+.DS_Store
+*.classpath
