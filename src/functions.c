@@ -88,6 +88,17 @@ void height_conversion(float height) {   // height in cm
     printf("Height in inches: %f\n", inches);
 }
 
+int sum_of_digits(int num) {
+    int sum = 0;
+    while (num != 0) {
+        int last_digit = num % 10;
+        num = num / 10;
+        sum += last_digit;
+    }
+
+    return sum;
+}
+
 int main() {
 
    /* int num;
@@ -95,10 +106,10 @@ int main() {
     scanf("%d", &num);
     even_odd(num);   */
 
-    int year;
+   /* int year;
     printf("Enter a year : ");
     scanf("%d", &year);
-    leap_year(year);
+    leap_year(year); */
 
    /* int marks = 85;
     grading_system(marks);
@@ -121,6 +132,11 @@ int main() {
     
     */
 
-    return 0;
+   int num;
+   printf("Enter the total no. of digits : ");
+   scanf("%d", &num);
+   int sumDigits = sum_of_digits(num);
+   printf("The sum of these digits is %d \n", sumDigits);
 
+   return 0;
 }

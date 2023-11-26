@@ -1,39 +1,50 @@
 #include <stdio.h>
+#include <math.h>
 
 int main() {
-    float a, b;
-    int choice;
 
-    printf("Enter two numbers: ");
-    scanf("%f %f", &a, &b);
+    double num1, num2;
+    char op;
+    char choice;
 
-    printf("Enter choice:\n");
-    printf("1. Add\n");
-    printf("2. Subtract\n");
-    printf("3. Multiply\n");
-    printf("4. Divide\n");
-    printf("5. Modulus\n");
-    scanf("%d", &choice);
+    do
+    {
+        printf("Enter 1st number : ");
+        scanf("%lf", &num1);
 
-    switch (choice) {
-        case 1:
-            printf("Sum: %f\n", a + b);
+        printf("Enter 2nd operand : ");
+        scanf("%lf", &num2);
+
+        getchar();
+
+        printf("Enter the operation That you want to perform : \n");
+        printf("[+] [-] [*] [/] [Mod] \n");
+        scanf("%c", &op);
+
+        switch (op)
+        {
+        case'+':
+            printf("The sum of these two numebers is : %lf\n", (num1 + num2));
             break;
-        case 2:
-            printf("Difference: %f\n", a - b);
+        case '-' :
+            printf("The differnece of these two numebers is : %lf \n", (num1 - num2));
             break;
-        case 3:
-            printf("Product: %f\n", a * b);
+        case '*' :
+            printf("The product of these two numebers is : %lf \n", (num1 * num2));
             break;
-        case 4:
-            printf("Quotient: %f\n", a / b);
+        case '/' :
+            printf("The quotient of the these two numebers is : %lf \n", (num1 / num2));
             break;
-        case 5:
-            printf("Remainder: %f\n", fmod(a, b));
+        case '%' :
+            printf("The remainder of these two numebers is : %f \n", fmod(num1, num2));
             break;
         default:
             printf("Invalid choice\n");
-    }
-
-    return 0;
+            break;
+        }
+        getchar();
+        
+        printf("Do you want to continue : (Y/N) \n");
+        scanf("%c", &choice);
+    } while (choice == 'y' || choice == 'Y');
 }

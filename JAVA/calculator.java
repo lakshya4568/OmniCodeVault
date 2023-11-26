@@ -18,7 +18,7 @@ public class calculator {
             num2 = input.nextDouble();
 
             System.out.println("Enter The Type of Operation You want to Perform - ");
-            System.out.println("The Valid Operations are :\n [+]\n [-]\n [*]\n [/]\n [%]");
+              System.out.println("The Valid Operations are :[+] [-] [*] [/] [%] \n");
             operator = input.next().charAt(0);
 
             switch (operator) {
