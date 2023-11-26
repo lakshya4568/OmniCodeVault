@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class primefunc {
+public class checkPrime {
 
     public static boolean isPrime(int num) {
         int div = 2;
