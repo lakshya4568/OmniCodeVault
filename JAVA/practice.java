@@ -1,38 +1,95 @@
 import java.util.*;
 
 public class practice {
-    public static void main(String[] aStrings) {
+
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-
-        // character data type with its size
-        // byte[1] < short[2] < int[4] < float[4] < long[8] < double[8]
-
         char repeat;
 
         do {
-            System.out.println("Enter a number : ");
-            int num = input.nextInt();
+            System.out.println("Choose an option:");
+            System.out.println("1. Check if a number is odd or even");
+            System.out.println("2. Check if a number is prime");
+            System.out.println("3. Find the largest of three numbers");
+            System.out.println("4. Check if a year is a leap year");
+            System.out.println("5. Calculate income tax");
+            int choice = input.nextInt();
 
-            if (num % 2 == 0) {
-                System.out.println(num + "is an even number");
-            } else {
-                System.out.println(num + "is an odd number");
+            switch (choice) {
+                case 1:
+                    System.out.println("Enter a number : ");
+                    int num = input.nextInt();
+
+                    if (num % 2 == 0) {
+                        System.out.println(num + " is an even number");
+                    } else {
+                        System.out.println(num + " is an odd number");
+                    }
+                    break;
+                case 2:
+                    System.out.print("Enter a number : ");
+                    int primeNum = input.nextInt();
+
+                    if (isPrime(primeNum)) {
+                        System.out.println(primeNum + " is prime");
+                    } else {
+                        System.out.println(primeNum + " is not prime");
+                    }
+                    break;
+                case 3:
+                    System.out.println("Enter 1st number : ");
+                    float num1 = input.nextFloat();
+
+                    System.out.println("Enter 2nd number : ");
+                    float num2 = input.nextFloat();
+
+                    System.out.println("Enter 3rd number : ");
+                    float num3 = input.nextFloat();
+
+                    float max = largestOfThree(num1, num2, num3);
+                    System.out.println("The maximum floating numeral is " + max);
+                    break;
+                case 4:
+                    System.out.println("Enter The Year (YYYY) : ");
+                    int year = input.nextInt();
+
+                    if (leapYear(year) == 1) {
+                        System.out.println(year + " is a leap year");
+                    } else {
+                        System.out.println(year + " is not a leap year");
+                    }
+                    break;
+                case 5:
+                    System.out.println("Enter your income in Lakhs : ");
+                    float income = input.nextFloat();
+                    incomeTax(income);
+                    break;
+                case 6:
+                    
+                default:
+                    System.out.println("Invalid choice");
             }
 
-            System.out.printf("Do you want to check another number? (y/n) : ");
+            System.out.printf("Do you want to check another option? (y/n) : ");
             repeat = input.next().charAt(0);
+
         } while (repeat == 'y' || repeat == 'Y');
 
-        System.out.println("Goodbye!, Thank you for using odd even program ");
+        System.out.println("Goodbye! Thank you for using the program.");
 
         input.close();
     }
-}
 
+    public static boolean isPrime(int num) {
+        for (int div = 2; div <= Math.sqrt(num); div++) {
+            if (num % div == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 
-class practice2 {
-
-    public static float largest_of_three(float A, float B, float C) {
+    public static float largestOfThree(float A, float B, float C) {
         if ((A >= B) && (A >= C)) {
             return A;
         } else if (B >= C) {
@@ -64,45 +121,7 @@ class practice2 {
             System.out.println("You need to pay 20% tax on your income which is " + tax + " Lakhs");
         } else {
             tax = (0.3f * income);
-            System.out.println("BROTHER YOU ARE FUCKED with 30% tax on your income which is " + tax + " Lakhs");
-        } 
-    }
-
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-
-        {
-            System.out.println("Enter The Year (YYYY)");
-            int year = input.nextInt();
-
-            if (leapYear(year) == 1) {
-                System.out.println("THIS IS A LEAP YEAR");
-            } else {
-                System.out.println("This is not a leap year");
-            }
+            System.out.println("You need to pay 30% tax on your income which is " + tax + " Lakhs");
         }
-
-        {
-            System.out.println("Enter 1st number :");
-            float num1 = input.nextInt();
-
-            System.out.println("Enter 2nd number : ");
-            float num2 = input.nextInt();
-
-            System.out.println("Enter 3rd number : ");
-            float num3 = input.nextInt();
-
-            float max = largest_of_three(num1, num2, num3);
-            System.out.println("The maximum floating numeral is " + max);
-
-        }
-        
-        {
-            System.out.println("Enter your income in Lakhs : ");
-            float income = input.nextFloat();
-            incomeTax(income);
-        }
-
-        input.close();
     }
 }
