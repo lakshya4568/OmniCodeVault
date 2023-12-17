@@ -3,25 +3,29 @@ import java.util.*;
 public class checkPrime {
 
     public static boolean isPrime(int num) {
-        int div = 2;
-        boolean primeCheck = true;
-
-        while (div < num) {
-            if (num % div == 0) {
-                primeCheck = false;
+        boolean checkPrime = true;
+        for (int div = 2; div <= num - 1; div++) {
+            if (num % div == 0) { // // num is a multiple of div, (div is not equal to 1 or num)
+                checkPrime = false;
                 break;
-            } else {
-                div++;
             }
         }
 
-        if (primeCheck) {
+        if (checkPrime) {
             return true;
         } else {
             return false;
         }
+
+        /*
+         * We can more optimised the given code while minimizing the time complexity
+         * of it using Square root of num like which decreases the no.of steps to the
+         * maximum value
+         * of the num multiples by using this statement :
+         * for (int div = 2; div <= Math.sqrt(num);
+         */
     }
-    
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
@@ -33,8 +37,8 @@ public class checkPrime {
         } else {
             System.out.println("non prime");
         }
-        
+
         input.close();
-        
+
     }
 }
