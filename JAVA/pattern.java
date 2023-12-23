@@ -2,13 +2,12 @@ import java.util.*;
 
 public class pattern {
 
-    public static void starSquare(int lines) {
+    public static void SolidSquare(int lines) {
         for (int i = 1; i <= lines; i++) {
             System.out.println("****");
         }
+        System.out.println();
     }
-
-
 
     public static void hollow_rectangle(int rows, int cols) {
         for (int i = 1; i <= rows; i++) {
@@ -55,8 +54,18 @@ public class pattern {
             for (int j = 1; j <= i; j++) {
                 System.out.print("* ");
             }
-            
+
             System.out.println();
+        }
+            System.out.println();
+    }
+    
+    public static void inverted_HalfPyramid(int lines) {
+        for (int i = 1; i <= lines; i++) {
+            for (int j = 1; j <= lines - i+1; j++) {
+                System.out.print("*");
+            }
+                System.out.println();
         }
     }
     
@@ -74,8 +83,9 @@ public class pattern {
 
         hollow_rectangle(rows, columns);
         diamond(rows);
-        half_pyramid(rows); System.out.println();
-        starSquare(rows);
+        half_pyramid(rows);
+        SolidSquare(rows); 
+        inverted_HalfPyramid(rows);
 
         input.close();
     }
