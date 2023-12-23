@@ -13,6 +13,7 @@ public class practice {
             System.out.println("3. Find the largest of three numbers");
             System.out.println("4. Check if a year is a leap year");
             System.out.println("5. Calculate income tax");
+            System.out.println("6. Reverse of a number");
             int choice = input.nextInt();
 
             switch (choice) {
@@ -65,7 +66,10 @@ public class practice {
                     incomeTax(income);
                     break;
                 case 6:
-                    
+                    System.out.println("Enter the digit which to reverse : ");
+                    int digit = input.nextInt();
+                    reverse(digit);
+                    break;
                 default:
                     System.out.println("Invalid choice");
             }
@@ -123,5 +127,17 @@ public class practice {
             tax = (0.3f * income);
             System.out.println("You need to pay 30% tax on your income which is " + tax + " Lakhs");
         }
+    }
+
+    public static void reverse(int digit) {
+        int rev = 0;
+
+        while (digit > 0) {
+            int rem = digit % 10;
+            rev = rev * 10 + rem;
+            digit /= 10;
+        }
+
+        System.out.println("The reverse of the digit is " + rev);
     }
 }

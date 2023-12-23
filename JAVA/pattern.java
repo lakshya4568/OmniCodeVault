@@ -1,6 +1,15 @@
 import java.util.*;
 
 public class pattern {
+
+    public static void starSquare(int lines) {
+        for (int i = 1; i <= lines; i++) {
+            System.out.println("****");
+        }
+    }
+
+
+
     public static void hollow_rectangle(int rows, int cols) {
         for (int i = 1; i <= rows; i++) {
             for (int j = 1; j <= cols; j++) {
@@ -40,6 +49,16 @@ public class pattern {
         }
 
     }
+
+    public static void half_pyramid(int lines) {
+        for (int i = 1; i <= lines; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            
+            System.out.println();
+        }
+    }
     
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -55,7 +74,8 @@ public class pattern {
 
         hollow_rectangle(rows, columns);
         diamond(rows);
-
+        half_pyramid(rows); System.out.println();
+        starSquare(rows);
 
         input.close();
     }
