@@ -9,11 +9,12 @@ class test
         n = input.nextInt();
         for(int i=1;i<=n;i++)
         {
-            if (i%10==0)
-            {
+            if (i % 10 == 0) {
                 continue;
             }
             System.out.println(i);
         }
+        
+        input.close();
     }
 }
