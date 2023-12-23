@@ -2,15 +2,14 @@
 import java.util.Scanner;
 class test
 {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int n;
         System.out.println("Enter the number");
-        n = sc.nextInt();
+        n = input.nextInt();
         for(int i=1;i<=n;i++)
         {
-            if(i%10==0)
+            if (i%10==0)
             {
                 continue;
             }
