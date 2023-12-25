@@ -20,7 +20,10 @@ public class pattern {
             }
             System.out.println();
         }
+        System.out.println();
     }
+
+
 
     public static void diamond(int lines) {
         // space 
@@ -57,16 +60,52 @@ public class pattern {
 
             System.out.println();
         }
+        System.out.println();
+    }
+    
+    public static void numeric_half_pyramid(int lines) {
+        for (int i = 1; i <= lines; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(j);
+            }
             System.out.println();
+        }
     }
     
     public static void inverted_HalfPyramid(int lines) {
         for (int i = 1; i <= lines; i++) {
-            for (int j = 1; j <= lines - i+1; j++) {
+            for (int j = 1; j <= lines - i + 1; j++) {
                 System.out.print("*");
             }
-                System.out.println();
+            System.out.println();
         }
+        System.out.println();
+    }
+    
+    public static void character_HalfPyramid(int lines) {
+        char ch = 'A'; 
+        for (int i = 1; i <= lines; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(ch);
+                ch++;
+            }
+            System.out.println();
+            /* If we want this type of pattern like :
+                A
+                AB                  We can change the inner loop by this algorithm
+                ABC                 for (char j = 1; j <= 'A' + i -1; j++) {
+                ABCD                    System.out.print(j); }
+                
+                when i = 2, the loop condition is j <= 'A' + i - 1. 
+                Here, i is 2, so the condition becomes j <= 'B'.
+            
+                In Java, characters are represented as integers based 
+                on their Unicode values. 'A' has a smaller Unicode value than 'B', 
+                so the condition 'A' <= 'B' is true.            
+            */
+        }
+
+
     }
     
     public static void main(String[] args) {
@@ -86,6 +125,10 @@ public class pattern {
         half_pyramid(rows);
         SolidSquare(rows); 
         inverted_HalfPyramid(rows);
+        numeric_half_pyramid(rows);
+
+        System.out.println();
+        character_HalfPyramid(rows);
 
         input.close();
     }
