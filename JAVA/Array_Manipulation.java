@@ -25,6 +25,28 @@ public class Array_Manipulation{
         arr[1] = temp;
     }
 
+    public static int getLargest(int arr[]) {
+        int largest = Integer.MIN_VALUE; // -infinity
+        for (int i = 0; i <= arr.length - 1; i++) {
+            if (largest < arr[i]) {
+                largest = arr[i];
+            }
+        }
+
+        return largest;
+    }
+    
+    public static int getSmallest(int arr[]) {
+        int smallest = Integer.MAX_VALUE; // infinity
+        for (int i = 0; i <= arr.length - 1; i++) {
+            if (smallest > arr[i]) {
+                smallest = arr[i];
+            }
+        }
+
+        return smallest;
+    }
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
@@ -41,6 +63,7 @@ public class Array_Manipulation{
 
         System.out.println("Choose the method to run ");
         System.out.println("1. LinearSearch" + "\n2. Swap Pairs" + "\n3. Swap Numbers");
+        System.out.println("4. Get Largest and smallest element from the array");
         int choice = input.nextInt();
 
         switch (choice) {
@@ -68,10 +91,17 @@ public class Array_Manipulation{
                 swapNumbers(numbers);
                 System.out.println("After swapping : " + numbers[0] + " " + numbers[1]);
                 break;
+            case 4:
+                int large = getLargest(arr);
+                System.out.println("The largest no. from the array is : " + large);
+                int small = getSmallest(arr);
+                System.out.println("The smalles no. from the array is : " + small);
+                break;
             default:
                 System.out.println("Invalid choice");
         }
 
         input.close();
     }
+
 }

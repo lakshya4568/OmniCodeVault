@@ -14,11 +14,12 @@ public class practice {
             System.out.println("4. Check if a year is a leap year");
             System.out.println("5. Calculate income tax");
             System.out.println("6. Reverse of a number");
+            System.out.println("7. Numeric Palindrome");
             int choice = input.nextInt();
 
             switch (choice) {
                 case 1:
-                    System.out.println("Enter a number : ");
+                    System.out.print("Enter a number : ");
                     int num = input.nextInt();
 
                     if (num % 2 == 0) {
@@ -38,20 +39,20 @@ public class practice {
                     }
                     break;
                 case 3:
-                    System.out.println("Enter 1st number : ");
+                    System.out.print("Enter 1st number : ");
                     float num1 = input.nextFloat();
 
-                    System.out.println("Enter 2nd number : ");
+                    System.out.print("Enter 2nd number : ");
                     float num2 = input.nextFloat();
 
-                    System.out.println("Enter 3rd number : ");
+                    System.out.print("Enter 3rd number : ");
                     float num3 = input.nextFloat();
 
                     float max = largestOfThree(num1, num2, num3);
                     System.out.println("The maximum floating numeral is " + max);
                     break;
                 case 4:
-                    System.out.println("Enter The Year (YYYY) : ");
+                    System.out.print("Enter The Year (YYYY) : ");
                     int year = input.nextInt();
 
                     if (leapYear(year) == 1) {
@@ -61,15 +62,25 @@ public class practice {
                     }
                     break;
                 case 5:
-                    System.out.println("Enter your income in Lakhs : ");
+                    System.out.print("Enter your income in Lakhs : ");
                     float income = input.nextFloat();
                     incomeTax(income);
                     break;
                 case 6:
-                    System.out.println("Enter the digit which to reverse : ");
+                    System.out.print("Enter the digit which to reverse : ");
                     int digit = input.nextInt();
-                    reverse(digit);
+                    int rev = reverse(digit);
+                    System.out.println("The reverse of the digit is " + rev);
                     break;
+                case 7:
+                    System.out.print("Enter your number : ");
+                    int number = input.nextInt();
+                    if (isPalindrome(number)) {
+                        System.out.println(number + " is a palindrome");
+                    } else {
+                        System.out.println(number + " is not the palindrome");
+                    }
+                    break;   
                 default:
                     System.out.println("Invalid choice");
             }
@@ -129,7 +140,7 @@ public class practice {
         }
     }
 
-    public static void reverse(int digit) {
+    public static int reverse(int digit) {
         int rev = 0;
 
         while (digit > 0) {
@@ -137,7 +148,15 @@ public class practice {
             rev = rev * 10 + rem;
             digit /= 10;
         }
+        return rev;
+    }
 
-        System.out.println("The reverse of the digit is " + rev);
+    public static boolean isPalindrome(int num) {
+        int reverse = reverse(num);
+        if (reverse == num) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
