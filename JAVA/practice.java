@@ -142,8 +142,7 @@ public class practice {
 
     public static int reverse(int digit) {
         int rev = 0;
-
-        while (digit > 0) {
+        while (digit != 0) {
             int rem = digit % 10;
             rev = rev * 10 + rem;
             digit /= 10;
@@ -152,11 +151,20 @@ public class practice {
     }
 
     public static boolean isPalindrome(int num) {
-        int reverse = reverse(num);
-        if (reverse == num) {
+        if (num == 0) {
             return true;
-        } else {
+        }
+        if (num < 0 || num % 10 == 0) {
             return false;
         }
+       
+        int reverseHalf = 0;
+        while (num > reverseHalf) {
+            int lastDigit = num % 10;
+            reverseHalf *= 10 + lastDigit;
+            num /= 10;
+        }
+
+        return num == reverseHalf || (num == reverseHalf / 10);
     }
 }

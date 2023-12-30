@@ -39,7 +39,7 @@ public class Array_Manipulation {
 
         return largest;
     }
-    
+
     public static int getSmallest(int arr[]) {
         int smallest = Integer.MAX_VALUE; // infinity
         for (int i = 0; i <= arr.length - 1; i++) {
@@ -60,7 +60,7 @@ public class Array_Manipulation {
             }
             if (arr[mid] < key) { // right half
                 start = mid + 1;
-            } else { //left half 
+            } else { // left half
                 end = mid - 1;
             }
         }
@@ -104,15 +104,16 @@ public class Array_Manipulation {
             int start = i;
             for (int j = i; j < numbers.length; j++) {
                 int end = j;
+                currSum = 0;
                 for (int k = start; k <= end; k++) {
                     // print subarray
-                    // subarray sum 
+                    // subarray sum
                     currSum += numbers[k];
                     System.out.print(numbers[k] + " ");
                     total_SubArray++;
                 }
+                System.out.print(" Sum : " + currSum);
                 System.out.println();
-                System.out.println(currSum);
                 if (maxSum < currSum) {
                     maxSum = currSum;
                 }
@@ -128,6 +129,54 @@ public class Array_Manipulation {
         System.out.println("MinSum ; " + minSum);
     }
 
+    public static int prefix_Max_Subarray_Sum(int arr[]) {
+        int maxSum = Integer.MIN_VALUE;
+        int prefixSum = 0;
+
+        // create an prefix array
+        int prefix[] = new int[arr.length];
+        // calculate prefix subarray
+        prefix[0] = arr[0];
+        for (int i = 1; i < prefix.length; i++) {
+            prefix[i] = prefix[i - 1] + arr[i];
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            int start = i;
+            for (int j = 1; j < arr.length; j++) {
+                int end = j;
+                // prefix sum formula and condition that if start = 0;
+                // the condition that prefix[start-1] will become -1
+                // which is false, so we say when start == 0;
+                // calculate till prefix[end]
+                prefixSum = start == 0 ? prefix[end] : prefix[end] - prefix[start - 1];
+
+                if (maxSum < prefixSum) {
+                    maxSum = prefixSum;
+                }
+            }
+        }
+
+        return maxSum;
+    }
+
+    public static int kadane_Max_SubarraySum(int numbers[]) {
+        // case if the array given is empty then :
+        if (numbers == null || numbers.length == 0) {
+            return 0;
+        }
+
+        int currSum = numbers[0];
+        int maxSum = numbers[0];
+
+        for (int i = 1; i < numbers.length; i++) {
+            currSum = currSum > 0 ? currSum + numbers[i] : numbers[i];
+            maxSum = Math.max(currSum, maxSum);
+        }
+
+        return maxSum;
+
+    }
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -151,6 +200,8 @@ public class Array_Manipulation {
         System.out.println("6. Reverse of the array");
         System.out.println("7. Print the pairs of element in array");
         System.out.println("8. Print Subarrays");
+        System.out.println("9. Max Subarray Sum (prefix sum method)");
+        System.out.println("10. Maximum Subarray Sum (Kadane Algorithm)");
         int choice = input.nextInt();
 
         switch (choice) {
@@ -208,6 +259,18 @@ public class Array_Manipulation {
                 System.out.print("Given array : ");
                 printArray(arr);
                 printSub_Array(arr);
+                break;
+            case 9:
+                System.out.println("Given array : ");
+                printArray(arr);
+                int prefixSum_Max = prefix_Max_Subarray_Sum(arr);
+                System.out.println("The maximum sum of the subarray is : " + prefixSum_Max);
+                break;
+            case 10:
+                System.out.println("Given array : ");
+                printArray(arr);
+                int kadane = kadane_Max_SubarraySum(arr);
+                System.out.println("The maximum sum of the subarray is : " + kadane);
                 break;
             default:
                 System.out.println("Invalid choice");
