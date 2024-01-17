@@ -1,22 +1,22 @@
 #include <stdio.h>
 
-int factorial(int num) {
-    int fact;
-    if (num == 1) {
-        return 1;
+
+
+int fun(int x, int y) {
+    if (x == 0) {
+        return y;
     } else {
-        fact = num * factorial(num-1);
+        return fun(x - 1, x + y);
     }
-    return fact;
-}
+} 
 
 int main() {
     int num;
     printf("Enter a number : ");
     scanf("%d", &num);
 
-    int fun = factorial(num);
-    printf("factorial is this : %d\n", fun);
+    int fuxn = fun(5, 4);
+    printf("%d\n`", fuxn);
 
     return 0;
 }
