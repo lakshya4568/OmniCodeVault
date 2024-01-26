@@ -35,12 +35,27 @@ public class sorts {
         }
     }
 
+    public static void insertionSort(int arr[]) {
+        for (int i = 1; i < arr.length; i++) { // can work with max sort with one unsort left
+            int current = arr[i];
+            int previous = i - 1; // findingg current position 
+            while (previous >= 0 && arr[previous] > current) {
+                // arr[previous] > (ascending) or arr[previous] < (descending)
+                arr[previous + 1] = arr[previous];
+                previous--;
+            }
+            // insertion sort 
+            arr[previous+1] = current;
+            
+        }
+    }
+
     public static void main(String[] args) {
         int arr[] = { 5, 3, 2, 8, 3 };
 
         long startTime = System.currentTimeMillis();
 
-        selectionSort(arr);
+        insertionSort(arr);
         System.out.println(Arrays.toString(arr));
 
         long endTime = System.currentTimeMillis();
