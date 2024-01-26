@@ -4,4 +4,5 @@ src/out/
 .vscode/
 src/output/
 .DS_Store
+Python/.ipynb_checkpoints/
 *.classpath
