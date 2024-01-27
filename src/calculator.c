@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 
-int main() {
+int main()
+{
 
     double num1, num2;
     char op;
@@ -23,19 +24,19 @@ int main() {
 
         switch (op)
         {
-        case'+':
+        case '+':
             printf("The sum of these two numebers is : %lf\n", (num1 + num2));
             break;
-        case '-' :
+        case '-':
             printf("The differnece of these two numebers is : %lf \n", (num1 - num2));
             break;
-        case '*' :
+        case '*':
             printf("The product of these two numebers is : %lf \n", (num1 * num2));
             break;
-        case '/' :
+        case '/':
             printf("The quotient of the these two numebers is : %lf \n", (num1 / num2));
             break;
-        case '%' :
+        case '%':
             printf("The remainder of these two numebers is : %f \n", fmod(num1, num2));
             break;
         default:
@@ -43,7 +44,7 @@ int main() {
             break;
         }
         getchar();
-        
+
         printf("Do you want to continue : (Y/N) \n");
         scanf("%c", &choice);
     } while (choice == 'y' || choice == 'Y');
