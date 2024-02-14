@@ -23,7 +23,7 @@ void append ()
     {
         struct node *p;
         p = root;
-        while(p != NULL)
+        while(p->link != NULL)
         {
             p = p->link;
         }
@@ -40,6 +40,7 @@ void display()
     {
         printf("[%d|%u] --> ", p->data, p->link);
         p = p->link;
+        count++;
     }
     printf("\n This linked list having %d nodes.\n", count);
 }
@@ -49,6 +50,8 @@ int main() {
     append();
     append();
     append();
+
+    display();
     
     return 0;
 }
