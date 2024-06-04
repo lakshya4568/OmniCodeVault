@@ -14,67 +14,60 @@ public class LinkedList {
 
     public void addAtbegin(int data) {
         // create a new node
-        Node new_Node = new Node(data);
-
-        // check if head is null, if null, new node is head node, and tail
-        if (head == null) {
-            head = tail = new_Node;
-            return;
-        } else {
-            // make the new node as head node if the conditon falls
-            new_Node.next = head;
-            head = new_Node;
-        }
-    }
-
-    public void append(int data) {
-        //create a new Node 
         Node temp = new Node(data);
-        temp.next = null;
-
-        if (head == null) {
-            head = temp;
-        } else {
-            Node p;
-            p = head;
-            while (p.next != null) {
-                p = p.next;
-            }
-            p.next = temp;
-        }
-    }
-    
-    public void addAtlast(int data) {
-        //create a node
-        Node temp = new Node(data);
-        // check if the linked list if empty,
         if (head == null) {
             head = tail = temp;
             return;
         } else {
-            // add at tail
-            
+            temp.next = head;
+            head = temp;
         }
     }
 
+    public void addAtlast(int data) {
+        //create a new node 
+        Node temp = new Node(data);
+        if (head == null) {
+            head = tail = temp;
+            return;
+        } else {
+            tail.next = temp;
+            tail = temp;
+        }
+    }
+
+    public void append(int data) {
+        Node temp = new Node(data);
+        if (head == null) {
+            head = tail = temp;
+            return;
+        }
+        Node current = head;
+        while (current.next != null) {
+            current = current.next;
+        }
+        current.next = temp;
+    }
+ 
+
     public void display() {
-        Node s;
-        s = head;
-        while (s != null) {
-            System.out.printf("[%d]-->", s.data);
-            s = s.next;
+        Node p = head;
+        while (p != null) {
+            System.out.printf("[%d]-->", p.data);
+            p = p.next;
         }
     }
 
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
 
+        
+        ll.addAtlast(3);
+        ll.addAtlast(4);
+        ll.addAtlast(5);
         ll.addAtbegin(1);
         ll.addAtbegin(2);
-        ll.append(3);
-        ll.append(4);
-        ll.append(5);
+
         ll.display();
-        
     }
 }
