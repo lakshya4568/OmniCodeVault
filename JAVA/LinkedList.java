@@ -84,8 +84,6 @@ public class LinkedList {
     temp.next = new_Node;
   }
 
-  public int recursiveSearch(int data) {}
-
   public int length() {
     Node current = head;
     int length = 0;

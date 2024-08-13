@@ -45,19 +45,43 @@ public class sorts {
                 previous--;
             }
             // insertion sort 
-            arr[previous+1] = current;
-            
+            arr[previous + 1] = current;
+
         }
     }
+    
+    public static void countingSort(int arr[]) {
+        int largest = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) { // it give us the max element, i.e, range.
+            largest = Math.max(largest, arr[i]);
+        }
+        
+        int count[] = new int[largest + 1];
+        // default element's value in count array is 0
+        for (int i = 0; i < arr.length; i++) {
+            // store the frequency or count of the element in array at its' index place
+            count[arr[i]]++;
+        }
+        
+        // sorting in original array
+        int j = 0; // change the original value of elements, at indexes position
+        for (int i = 0; i < count.length; i++) {
+            while (count[i] > 0) {
+                arr[j] = i;
+                j++;
+                count[i]--;
+            }
+        }
 
+    }
     public static void main(String[] args) {
-        int arr[] = { 5, 3, 2, 8, 3 };
+        int arr[] = { 1, 4, 1, 3, 2, 4, 3, 7 };
 
         long startTime = System.currentTimeMillis();
 
-        insertionSort(arr);
+        countingSort(arr);
         System.out.println(Arrays.toString(arr));
-
+    
         long endTime = System.currentTimeMillis();
         long elapsedTime = endTime - startTime;
         System.out.println("Elapsed time in millisecons : " + elapsedTime);
