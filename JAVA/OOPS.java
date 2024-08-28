@@ -13,41 +13,21 @@
 
 public class OOPS {
     
-    class Pen { // by convention, the classes names start with first letter
-        String color; // attributes(properties)
-        int tip; // data memebers 
-
-        void setColor(String newColor) {
-            color = newColor;
-        }
-
-        void setTip(int newTip) {
-            tip = newTip;
-        }
-    }
-    
-    class Student {
-        String name;
-        int age;
-        float percentage;
-
-        void calcPercentage(int phy, int chem, int maths) {
-            percentage = (phy + chem + maths) / 3;
-        }
-    }
-
-    class BankAccount {
-        public String username;
-        private String password;
-
-    }
-
     public static void main(String[] args) { // main method, compiler looks for main, and nothing else
         // its where the function starts executing
 
-        OOPS outer = new OOPS();
-        BankAccount myAccount = outer.new BankAccount();
+        BankAccount myAccount = new BankAccount();
         myAccount.username = "lakshyaSharma";
         myAccount.password = "abced";
+        myAccount.setPassword("lol");
+    }
+}
+
+class BankAccount {
+    public String username;
+    private String password;
+
+    public void setPassword(String pwd) {
+        password = pwd;
     }
 }
