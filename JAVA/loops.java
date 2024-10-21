@@ -62,7 +62,6 @@ class factorial {
 
         System.out.println("Factorial of the number is : " + factorial);
 
-
         input.close();
     }
 }
