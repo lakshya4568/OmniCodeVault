@@ -18,7 +18,7 @@ public class OOPS {
 
         BankAccount myAccount = new BankAccount();
         myAccount.username = "lakshyaSharma";
-        // myAccount.password = "abced";
+      //   myAccount.password = "abced";
         myAccount.setPassword("lol");
 
         Pen p1 = new Pen();
@@ -37,14 +37,6 @@ public class OOPS {
         Fish shark = new Fish();
         shark.name = "Whale Shark";
         shark.eat();
-
-        int[][] matrix = {
-            {1, 2, 3},
-            {4, 5, 6},
-            {7, 8, 9}
-        };
-
-        System.out.println(matrix.length);
     }
 }
 
