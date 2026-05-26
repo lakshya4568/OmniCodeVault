@@ -1,8 +1,8 @@
 *.log
 Java/out/
-src/out/
+C/out/
 .vscode/
-src/output/
+C/output/
 .DS_Store
 *.classpath
 Python/.ipynb_checkpoints/
